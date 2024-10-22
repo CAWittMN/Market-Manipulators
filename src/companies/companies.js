@@ -7,11 +7,11 @@ const companies = {
     price: config.initialValues.boog.price,
     beta: config.initialValues.boog.beta,
   },
-  blue: {
+  blu: {
     name: "Blue Chip Inc.",
     stockSymbol: "BLU",
-    price: config.initialValues.blue.price,
-    beta: config.initialValues.blue.beta,
+    price: config.initialValues.blu.price,
+    beta: config.initialValues.blu.beta,
   },
   meme: {
     name: "MemeShop",

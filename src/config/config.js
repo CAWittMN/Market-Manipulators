@@ -16,7 +16,7 @@ const config = {
       price: 20,
       beta: 2,
     },
-    blue: {
+    blu: {
       price: 200,
       beta: 1,
     },
