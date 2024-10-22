@@ -39,9 +39,12 @@ class GameApi {
   }
 
   static readGames() {}
-  static saveGame(data) {}
+  static saveGame(data) {
+    fs.writeFileSync();
+  }
   static newGame(options) {
     const newGame = {
+      createdAt: Date.now(),
       numPlayers: options.numPlayers,
       numMonths: this.setNumMonths(options.numPlayers),
       months: [
