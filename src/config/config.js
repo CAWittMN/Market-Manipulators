@@ -21,6 +21,11 @@ const config = {
       beta: 1,
     },
   },
+  fileConfig: {
+    savedGamesPath: "savedGames/",
+    settingsPath: "settings/",
+    fileFormat: ".json",
+  },
 };
 
 export default config;

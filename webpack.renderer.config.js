@@ -14,4 +14,5 @@ module.exports = {
   module: {
     rules,
   },
+  // target: "web",
 };

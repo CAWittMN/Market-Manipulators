@@ -1,9 +1,13 @@
+import config from "./config/config";
 import companies from "./companies/companies";
 import months from "./months/months";
 import scale from "./scale/scale";
 import markets from "./markets/markets";
 import objectMap from "./helpers/objectMap";
-const fs = require("fs");
+// const fs = require("fs");
+
+const savedGamePath = config.fileConfig.savedGamesPath;
+const fileFormat = config.fileConfig.fileFormat;
 
 class GameApi {
   static companies = companies;
@@ -47,18 +51,34 @@ class GameApi {
     return newMonth;
   }
 
-  static readGames() {
-    const data = [];
-    return data;
-  }
-  static saveGame(data) {
-    fs.writeFileSync();
-  }
+  // static getGames() {
+  //   let games = [];
+  //   try {
+  //     const fileList = fs.readdirSync(savedGamePath);
+  //     for (const file of fileList) {
+  //       games.push(JSON.parse(fs.readFileSync(`${savedGamePath}${file}`)));
+  //     }
+  //   } catch {
+  //     throw Error("Error loading games.");
+  //   }
+  //   return games;
+  // }
+
+  // static saveGame(data) {
+  //   const jsonData = JSON.stringify(data);
+  //   try {
+  //     fs.writeFileSync(`${filePath}${data.createdAt}${fileFormat}`, jsonData);
+  //   } catch {
+  //     throw Error("Error saving game.");
+  //   }
+  //   console.log("Game saved.");
+  // }
+
   static newGame(options) {
     const newGame = {
       createdAt: Date.now(),
       numPlayers: options.numPlayers,
-      numMonths: this.getNumMonths(options.numPlayers),
+      numMonths: options.numMonths,
       months: [
         {
           month: this.months[0],
@@ -73,7 +93,7 @@ class GameApi {
           }),
           marketCard: [],
           manipulationCards: [],
-          monthlyBonus: options.monthlyBonus,
+          monthlyBonus: null,
           marketType: this.markets.something,
         },
       ],
