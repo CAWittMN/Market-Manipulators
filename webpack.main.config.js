@@ -8,5 +8,5 @@ module.exports = {
   module: {
     rules: require("./webpack.rules"),
   },
-  // target: "web",
+  target: "electron-main",
 };
